@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>report</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bangkok-airbnb-market-intelligence-report"
+id="toc-bangkok-airbnb-market-intelligence-report"><span
+class="toc-section-number">1</span> Bangkok Airbnb Market Intelligence
+Report</a>
+<ul>
+<li><a href="#expernetic-data-engineer-intern-assessment"
+id="toc-expernetic-data-engineer-intern-assessment"><span
+class="toc-section-number">1.0.1</span> Expernetic Data Engineer Intern
+Assessment</a></li>
+<li><a href="#executive-summary" id="toc-executive-summary"><span
+class="toc-section-number">1.1</span> 1. Executive Summary</a></li>
+<li><a href="#objectives-scope" id="toc-objectives-scope"><span
+class="toc-section-number">1.2</span> 2. Objectives &amp; Scope</a>
+<ul>
+<li><a href="#project-objectives" id="toc-project-objectives"><span
+class="toc-section-number">1.2.1</span> 2.1 Project Objectives</a></li>
+<li><a href="#city-selection" id="toc-city-selection"><span
+class="toc-section-number">1.2.2</span> 2.2 City Selection</a></li>
+<li><a href="#prioritization-rationale"
+id="toc-prioritization-rationale"><span
+class="toc-section-number">1.2.3</span> 2.3 Prioritization
+Rationale</a></li>
+<li><a href="#scope-boundaries" id="toc-scope-boundaries"><span
+class="toc-section-number">1.2.4</span> 2.4 Scope Boundaries</a></li>
+</ul></li>
+<li><a href="#dataset-overview" id="toc-dataset-overview"><span
+class="toc-section-number">1.3</span> 3. Dataset Overview</a>
+<ul>
+<li><a href="#data-source" id="toc-data-source"><span
+class="toc-section-number">1.3.1</span> 3.1 Data Source</a></li>
+<li><a href="#files-used" id="toc-files-used"><span
+class="toc-section-number">1.3.2</span> 3.2 Files Used</a></li>
+<li><a href="#entity-relationships" id="toc-entity-relationships"><span
+class="toc-section-number">1.3.3</span> 3.3 Entity
+Relationships</a></li>
+<li><a href="#data-limitations-scraping-artifacts"
+id="toc-data-limitations-scraping-artifacts"><span
+class="toc-section-number">1.3.4</span> 3.4 Data Limitations &amp;
+Scraping Artifacts</a></li>
+<li><a href="#assumptions" id="toc-assumptions"><span
+class="toc-section-number">1.3.5</span> 3.5 Assumptions</a></li>
+<li><a href="#business-domain-context"
+id="toc-business-domain-context"><span
+class="toc-section-number">1.3.6</span> 3.6 Business Domain
+Context</a></li>
+</ul></li>
+<li><a href="#methodology" id="toc-methodology"><span
+class="toc-section-number">1.4</span> 4. Methodology</a>
+<ul>
+<li><a href="#overall-analytical-approach"
+id="toc-overall-analytical-approach"><span
+class="toc-section-number">1.4.1</span> 4.1 Overall Analytical
+Approach</a></li>
+<li><a href="#tool-selection-rationale"
+id="toc-tool-selection-rationale"><span
+class="toc-section-number">1.4.2</span> 4.2 Tool Selection &amp;
+Rationale</a></li>
+<li><a href="#statistical-methodology"
+id="toc-statistical-methodology"><span
+class="toc-section-number">1.4.3</span> 4.3 Statistical
+Methodology</a></li>
+<li><a href="#data-quality-framework"
+id="toc-data-quality-framework"><span
+class="toc-section-number">1.4.4</span> 4.4 Data Quality
+Framework</a></li>
+<li><a href="#outlier-handling" id="toc-outlier-handling"><span
+class="toc-section-number">1.4.5</span> 4.5 Outlier Handling</a></li>
+<li><a href="#pipeline-architecture"
+id="toc-pipeline-architecture"><span
+class="toc-section-number">1.4.6</span> 5.1 Pipeline
+Architecture</a></li>
+<li><a href="#pipeline-components" id="toc-pipeline-components"><span
+class="toc-section-number">1.4.7</span> 5.2 Pipeline Components</a></li>
+<li><a href="#star-schema-design" id="toc-star-schema-design"><span
+class="toc-section-number">1.4.8</span> 5.3 Star Schema Design</a></li>
+<li><a href="#engineering-decision-log"
+id="toc-engineering-decision-log"><span
+class="toc-section-number">1.4.9</span> 5.4 Engineering Decision
+Log</a></li>
+<li><a href="#incremental-processing-design"
+id="toc-incremental-processing-design"><span
+class="toc-section-number">1.4.10</span> 5.5 Incremental Processing
+Design</a></li>
+<li><a href="#production-readiness-considerations"
+id="toc-production-readiness-considerations"><span
+class="toc-section-number">1.4.11</span> 5.6 Production Readiness
+Considerations</a></li>
+</ul></li>
+<li><a href="#eda-findings" id="toc-eda-findings"><span
+class="toc-section-number">1.5</span> 6. EDA Findings</a>
+<ul>
+<li><a href="#price-distribution" id="toc-price-distribution"><span
+class="toc-section-number">1.5.1</span> 6.1 Price Distribution</a></li>
+<li><a href="#room-type-analysis" id="toc-room-type-analysis"><span
+class="toc-section-number">1.5.2</span> 6.2 Room Type Analysis</a></li>
+<li><a href="#neighbourhood-analysis"
+id="toc-neighbourhood-analysis"><span
+class="toc-section-number">1.5.3</span> 6.3 Neighbourhood
+Analysis</a></li>
+<li><a href="#host-supply-side-analysis"
+id="toc-host-supply-side-analysis"><span
+class="toc-section-number">1.5.4</span> 6.4 Host &amp; Supply-Side
+Analysis</a></li>
+<li><a href="#occupancy-revenue-analysis"
+id="toc-occupancy-revenue-analysis"><span
+class="toc-section-number">1.5.5</span> 6.5 Occupancy &amp; Revenue
+Analysis</a></li>
+<li><a href="#seasonal-trends" id="toc-seasonal-trends"><span
+class="toc-section-number">1.5.6</span> 6.6 Seasonal Trends</a></li>
+<li><a href="#review-score-analysis"
+id="toc-review-score-analysis"><span
+class="toc-section-number">1.5.7</span> 6.7 Review Score
+Analysis</a></li>
+<li><a href="#market-recovery-post-covid"
+id="toc-market-recovery-post-covid"><span
+class="toc-section-number">1.5.8</span> 6.8 Market Recovery
+Post-COVID</a></li>
+</ul></li>
+<li><a href="#statistical-findings" id="toc-statistical-findings"><span
+class="toc-section-number">1.6</span> 7. Statistical Findings</a>
+<ul>
+<li><a href="#methodology-note" id="toc-methodology-note"><span
+class="toc-section-number">1.6.1</span> 7.1 Methodology Note</a></li>
+<li><a href="#hypothesis-testing-results"
+id="toc-hypothesis-testing-results"><span
+class="toc-section-number">1.6.2</span> 7.2 Hypothesis Testing
+Results</a></li>
+<li><a href="#summary-table" id="toc-summary-table"><span
+class="toc-section-number">1.6.3</span> 7.3 Summary Table</a></li>
+</ul></li>
+<li><a href="#data-science-experiments"
+id="toc-data-science-experiments"><span
+class="toc-section-number">1.7</span> 8. Data Science Experiments</a>
+<ul>
+<li><a href="#price-prediction-planned-approach"
+id="toc-price-prediction-planned-approach"><span
+class="toc-section-number">1.7.1</span> 8.1 Price Prediction — Planned
+Approach</a></li>
+</ul></li>
+<li><a href="#aiml-experiments" id="toc-aiml-experiments"><span
+class="toc-section-number">1.8</span> 9. AI/ML Experiments</a>
+<ul>
+<li><a href="#llm-usage-in-this-project"
+id="toc-llm-usage-in-this-project"><span
+class="toc-section-number">1.8.1</span> 9.1 LLM Usage in This
+Project</a></li>
+<li><a href="#planned-nlp-analysis" id="toc-planned-nlp-analysis"><span
+class="toc-section-number">1.8.2</span> 9.2 Planned NLP
+Analysis</a></li>
+</ul></li>
+<li><a href="#visualizations" id="toc-visualizations"><span
+class="toc-section-number">1.9</span> 10. Visualizations</a></li>
+<li><a href="#business-recommendations"
+id="toc-business-recommendations"><span
+class="toc-section-number">1.10</span> 11. Business Recommendations</a>
+<ul>
+<li><a href="#for-hosts" id="toc-for-hosts"><span
+class="toc-section-number">1.10.1</span> For Hosts</a></li>
+<li><a href="#for-platform-operators"
+id="toc-for-platform-operators"><span
+class="toc-section-number">1.10.2</span> For Platform Operators</a></li>
+<li><a href="#for-investors" id="toc-for-investors"><span
+class="toc-section-number">1.10.3</span> For Investors</a></li>
+</ul></li>
+<li><a href="#cross-city-comparisons"
+id="toc-cross-city-comparisons"><span
+class="toc-section-number">1.11</span> 12. Cross-City Comparisons</a>
+<ul>
+<li><a href="#planned-comparison-markets"
+id="toc-planned-comparison-markets"><span
+class="toc-section-number">1.11.1</span> 12.1 Planned Comparison
+Markets</a></li>
+<li><a href="#harmonization-strategy"
+id="toc-harmonization-strategy"><span
+class="toc-section-number">1.11.2</span> 12.2 Harmonization
+Strategy</a></li>
+<li><a href="#expected-insights" id="toc-expected-insights"><span
+class="toc-section-number">1.11.3</span> 12.3 Expected Insights</a></li>
+</ul></li>
+<li><a href="#limitations-caveats" id="toc-limitations-caveats"><span
+class="toc-section-number">1.12</span> 13. Limitations &amp; Caveats</a>
+<ul>
+<li><a href="#data-limitations" id="toc-data-limitations"><span
+class="toc-section-number">1.12.1</span> 13.1 Data Limitations</a></li>
+<li><a href="#methodological-limitations"
+id="toc-methodological-limitations"><span
+class="toc-section-number">1.12.2</span> 13.2 Methodological
+Limitations</a></li>
+<li><a href="#statistical-limitations"
+id="toc-statistical-limitations"><span
+class="toc-section-number">1.12.3</span> 13.3 Statistical
+Limitations</a></li>
+</ul></li>
+<li><a href="#future-improvements" id="toc-future-improvements"><span
+class="toc-section-number">1.13</span> 14. Future Improvements</a>
+<ul>
+<li><a href="#with-more-time" id="toc-with-more-time"><span
+class="toc-section-number">1.13.1</span> 14.1 With More Time</a></li>
+<li><a href="#with-better-data" id="toc-with-better-data"><span
+class="toc-section-number">1.13.2</span> 14.2 With Better Data</a></li>
+<li><a href="#with-production-infrastructure"
+id="toc-with-production-infrastructure"><span
+class="toc-section-number">1.13.3</span> 14.3 With Production
+Infrastructure</a></li>
+</ul></li>
+<li><a href="#reflection" id="toc-reflection"><span
+class="toc-section-number">1.14</span> 15. Reflection</a>
+<ul>
+<li><a href="#prioritization-decisions"
+id="toc-prioritization-decisions"><span
+class="toc-section-number">1.14.1</span> 15.1 Prioritization
+Decisions</a></li>
+<li><a href="#key-trade-offs-accepted"
+id="toc-key-trade-offs-accepted"><span
+class="toc-section-number">1.14.2</span> 15.2 Key Trade-offs
+Accepted</a></li>
+<li><a href="#key-lessons-learned" id="toc-key-lessons-learned"><span
+class="toc-section-number">1.14.3</span> 15.3 Key Lessons
+Learned</a></li>
+</ul></li>
+<li><a href="#appendix-a-ai-usage-disclosure"
+id="toc-appendix-a-ai-usage-disclosure"><span
+class="toc-section-number">1.15</span> Appendix A — AI Usage
+Disclosure</a>
+<ul>
+<li><a href="#a.1-ai-tools-used" id="toc-a.1-ai-tools-used"><span
+class="toc-section-number">1.15.1</span> A.1 AI Tools Used</a></li>
+<li><a href="#a.2-ai-assisted-sections"
+id="toc-a.2-ai-assisted-sections"><span
+class="toc-section-number">1.15.2</span> A.2 AI-Assisted
+Sections</a></li>
+<li><a href="#a.3-key-prompts-used" id="toc-a.3-key-prompts-used"><span
+class="toc-section-number">1.15.3</span> A.3 Key Prompts Used</a></li>
+<li><a href="#a.4-output-validation"
+id="toc-a.4-output-validation"><span
+class="toc-section-number">1.15.4</span> A.4 Output Validation</a></li>
+<li><a href="#a.5-critical-assessment"
+id="toc-a.5-critical-assessment"><span
+class="toc-section-number">1.15.5</span> A.5 Critical
+Assessment</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="bangkok-airbnb-market-intelligence-report"><span
+class="header-section-number">1</span> Bangkok Airbnb Market
+Intelligence Report</h1>
+<h3 data-number="1.0.1"
+id="expernetic-data-engineer-intern-assessment"><span
+class="header-section-number">1.0.1</span> Expernetic Data Engineer
+Intern Assessment</h3>
+<p><strong>Prepared by:</strong> Primesh Marasinghe<br />
+<strong>Date:</strong> June 2026<br />
+<strong>Dataset:</strong> Inside Airbnb — Bangkok, Thailand (September
+2025 Scrape)</p>
+<hr />
+<h2 data-number="1.1" id="executive-summary"><span
+class="header-section-number">1.1</span> 1. Executive Summary</h2>
+<p>The Bangkok short-term rental market represents one of Southeast
+Asia’s most dynamic and commercially significant Airbnb ecosystems. This
+report presents a comprehensive analysis of 28,806 active listings
+across 50 neighbourhoods, derived from the Inside Airbnb public dataset
+scraped in September 2025.</p>
+<p><strong>Key Findings:</strong></p>
+<ul>
+<li><p><strong>Market Scale:</strong> Bangkok hosts 28,806 listings
+managed by 8,874 unique hosts, with a median nightly price of ฿1,383 THB
+(~$38 USD).</p></li>
+<li><p><strong>Market Concentration:</strong> A small cohort of
+commercial operators (10.6% of hosts) controls 57% of all listings — a
+significant supply-side concentration with implications for platform
+policy and pricing competition.</p></li>
+<li><p><strong>Price Drivers:</strong> Room type and neighbourhood are
+the dominant price determinants. Entire-home listings command a
+statistically significant 38% premium over private rooms (฿1,491 vs
+฿1,080 median, p&lt;0.0001). Neighbourhood alone explains 10.5% of price
+variance (η²=0.1055).</p></li>
+<li><p><strong>Quality Signal:</strong> Superhost status correlates
+meaningfully with guest satisfaction (4.86 vs 4.58 average rating,
+Cohen’s d=0.54) but not with price premium — suggesting hosts are not
+monetizing quality effectively.</p></li>
+<li><p><strong>Market Recovery:</strong> Post-COVID recovery is complete
+and accelerating. Review volume reached an all-time high of 148,869 in
+2024, with 2025 on track to surpass it.</p></li>
+<li><p><strong>Seasonality:</strong> Peak occupancy occurs
+July–September (43%), aligning with European summer travel patterns.
+Weekend pricing shows no statistically significant premium (p=0.526),
+confirming Bangkok’s leisure-dominant, globally distributed tourist
+base.</p></li>
+</ul>
+<p><strong>Recommendations for Market Participants:</strong> 1. Hosts
+should pursue Superhost status as a quality signal — current data
+suggests significant rating uplift without requiring price discounts. 2.
+Investors should prioritize Bang Rak and Vadhana for premium
+positioning. 3. Platform operators should monitor commercial host
+concentration as a regulatory risk.</p>
+<h2 data-number="1.2" id="objectives-scope"><span
+class="header-section-number">1.2</span> 2. Objectives &amp; Scope</h2>
+<h3 data-number="1.2.1" id="project-objectives"><span
+class="header-section-number">1.2.1</span> 2.1 Project Objectives</h3>
+<p>This assessment was undertaken as part of the Expernetic Data
+Engineer Intern Technical Assignment. The primary objectives were:</p>
+<ol type="1">
+<li>Design and implement a production-quality data engineering pipeline
+for ingesting, profiling, cleaning, and enriching publicly available
+Airbnb data.</li>
+<li>Conduct rigorous exploratory data analysis to surface actionable
+market insights.</li>
+<li>Apply formal statistical methods to validate or refute hypotheses
+about the Bangkok Airbnb marketplace.</li>
+<li>Build an interactive business intelligence dashboard for
+non-technical stakeholders.</li>
+<li>Document all engineering decisions, assumptions, and limitations
+transparently.</li>
+</ol>
+<h3 data-number="1.2.2" id="city-selection"><span
+class="header-section-number">1.2.2</span> 2.2 City Selection</h3>
+<p><strong>Selected City: Bangkok, Thailand</strong></p>
+<p>Bangkok was selected for the following reasons:</p>
+<ul>
+<li><strong>Dataset richness:</strong> 28,806 listings provide
+sufficient statistical power for hypothesis testing and segmentation
+analysis.</li>
+<li><strong>Market dynamism:</strong> Bangkok is one of the world’s top
+tourist destinations, offering interesting pricing dynamics across
+diverse neighbourhood types.</li>
+<li><strong>Data recency:</strong> The September 2025 scrape is among
+the most recent available, ensuring findings reflect current market
+conditions.</li>
+<li><strong>Personal relevance:</strong> As a Sri Lanka-based analyst,
+Southeast Asian market dynamics are directly applicable to regional
+business contexts.</li>
+</ul>
+<h3 data-number="1.2.3" id="prioritization-rationale"><span
+class="header-section-number">1.2.3</span> 2.3 Prioritization
+Rationale</h3>
+<p>Given the one-week timeline, sections were prioritized as
+follows:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 30%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Section</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Data Engineering (§03)</td>
+<td>Core role competency, highest rubric weight</td>
+</tr>
+<tr>
+<td>2</td>
+<td>EDA (§04)</td>
+<td>Foundation for all downstream analysis</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Statistical Analysis (§05)</td>
+<td>Differentiates analytical depth</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dashboard (§08)</td>
+<td>Demonstrates creativity and initiative</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Report &amp; Documentation</td>
+<td>Primary evaluation artifact</td>
+</tr>
+</tbody>
+</table>
+<p>Sections 06 (ML Modeling) and 07 (NLP/LLM) were deprioritized in
+favor of exceptional depth in the above sections, consistent with the
+assignment’s stated design philosophy: <em>“quality outweighs
+quantity.”</em></p>
+<h3 data-number="1.2.4" id="scope-boundaries"><span
+class="header-section-number">1.2.4</span> 2.4 Scope Boundaries</h3>
+<ul>
+<li>Single city analysis (Bangkok) with full pipeline depth</li>
+<li>Calendar price analysis limited due to null price fields in source
+data (documented in §3.4)</li>
+<li>No cloud deployment; architecture discussed conceptually in §5</li>
+</ul>
+<h2 data-number="1.3" id="dataset-overview"><span
+class="header-section-number">1.3</span> 3. Dataset Overview</h2>
+<h3 data-number="1.3.1" id="data-source"><span
+class="header-section-number">1.3.1</span> 3.1 Data Source</h3>
+<p>All data sourced exclusively from Inside Airbnb (insideairbnb.com),
+an independent, non-commercial project that scrapes publicly available
+Airbnb listing data. The Bangkok dataset reflects a scrape conducted in
+September 2025.</p>
+<h3 data-number="1.3.2" id="files-used"><span
+class="header-section-number">1.3.2</span> 3.2 Files Used</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 26%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>Rows</th>
+<th>Columns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>listings.csv</td>
+<td>28,806</td>
+<td>79</td>
+<td>Core listing attributes, host info, pricing, amenities</td>
+</tr>
+<tr>
+<td>calendar.csv</td>
+<td>10,514,202</td>
+<td>7</td>
+<td>Daily availability per listing (365 days forward)</td>
+</tr>
+<tr>
+<td>reviews.csv</td>
+<td>583,333</td>
+<td>6</td>
+<td>Guest review text and metadata</td>
+</tr>
+<tr>
+<td>neighbourhoods.csv</td>
+<td>50</td>
+<td>2</td>
+<td>Neighbourhood names and groupings</td>
+</tr>
+<tr>
+<td>neighbourhoods.geojson</td>
+<td>50</td>
+<td>—</td>
+<td>Geospatial polygon boundaries</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.3.3" id="entity-relationships"><span
+class="header-section-number">1.3.3</span> 3.3 Entity Relationships</h3>
+<p>listings (id) ──────────&lt; calendar (listing_id)</p>
+<p>listings (id) ──────────&lt; reviews (listing_id)</p>
+<p>listings (host_id) &gt;────── hosts (embedded in listings)</p>
+<p>listings (neighbourhood_cleansed) &gt;── neighbourhoods
+(neighbourhood)</p>
+<p><strong>Primary Keys:</strong> listings.id, reviews.id<br />
+<strong>Foreign Keys:</strong> calendar.listing_id → listings.id,
+reviews.listing_id → listings.id</p>
+<h3 data-number="1.3.4" id="data-limitations-scraping-artifacts"><span
+class="header-section-number">1.3.4</span> 3.4 Data Limitations &amp;
+Scraping Artifacts</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 32%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Impact</th>
+<th>Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calendar.price entirely null</td>
+<td>Cannot compute true revenue</td>
+<td>Proxy using listing price × availability_365</td>
+</tr>
+<tr>
+<td>neighbourhood_group_cleansed 100% null</td>
+<td>No district-level grouping</td>
+<td>Used neighbourhood_cleansed (50 groups)</td>
+</tr>
+<tr>
+<td>license 100% null</td>
+<td>Cannot assess regulatory compliance</td>
+<td>Excluded from analysis</td>
+</tr>
+<tr>
+<td>review scores ~35% missing</td>
+<td>Ratings analysis on subset only</td>
+<td>Documented, subset used</td>
+</tr>
+<tr>
+<td>host_neighbourhood ~67% missing</td>
+<td>Cannot map host locations</td>
+<td>Excluded from analysis</td>
+</tr>
+<tr>
+<td>Price outliers up to ฿1,000,000</td>
+<td>Skews mean calculations</td>
+<td>99th percentile filtering applied</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.3.5" id="assumptions"><span
+class="header-section-number">1.3.5</span> 3.5 Assumptions</h3>
+<ol type="1">
+<li><strong>Occupancy proxy:</strong> Estimated as
+<code>1 - (availability_365 / 365)</code>. This assumes unavailable days
+reflect bookings, not host blocking — a known limitation of Inside
+Airbnb methodology.</li>
+<li><strong>Revenue proxy:</strong>
+<code>price × (365 - availability_365)</code>. Uses listed price, not
+actual transaction price.</li>
+<li><strong>Price validity:</strong> Records with price = 0 or price
+&lt; 0 flagged but retained in dataset; excluded from price
+analysis.</li>
+<li><strong>Coordinate validity:</strong> Bangkok listings expected
+within latitude 12–15°N, longitude 100–101°E. Records outside this range
+flagged.</li>
+<li><strong>Review volume as demand proxy:</strong> Higher review counts
+interpreted as higher booking activity, consistent with Inside Airbnb
+methodology documentation.</li>
+</ol>
+<h3 data-number="1.3.6" id="business-domain-context"><span
+class="header-section-number">1.3.6</span> 3.6 Business Domain
+Context</h3>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Business Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listing</td>
+<td>A rentable property unit with defined pricing and availability</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Property owner or manager; may manage single or multiple
+listings</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Post-stay guest feedback; primary demand signal in the dataset</td>
+</tr>
+<tr>
+<td>Calendar</td>
+<td>Forward-looking availability schedule set by host</td>
+</tr>
+<tr>
+<td>Neighbourhood</td>
+<td>Administrative sub-district used for geographic segmentation</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="1.4" id="methodology"><span
+class="header-section-number">1.4</span> 4. Methodology</h2>
+<h3 data-number="1.4.1" id="overall-analytical-approach"><span
+class="header-section-number">1.4.1</span> 4.1 Overall Analytical
+Approach</h3>
+<p>This project followed a structured data engineering and analytics
+workflow: Raw Data Ingestion → Profiling → Cleaning → Enrichment → Star
+Schema → EDA → Hypothesis Testing → Dashboard → Report</p>
+<p>Each stage produced validated, documented outputs before the next
+stage began — consistent with production data engineering practice.</p>
+<h3 data-number="1.4.2" id="tool-selection-rationale"><span
+class="header-section-number">1.4.2</span> 4.2 Tool Selection &amp;
+Rationale</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 22%" />
+<col style="width: 41%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th>Tool Selected</th>
+<th>Alternatives Considered</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>Python 3.11</td>
+<td>R, Scala</td>
+<td>Ecosystem breadth, pandas/scipy integration</td>
+</tr>
+<tr>
+<td>Data Processing</td>
+<td>pandas</td>
+<td>polars, DuckDB</td>
+<td>Familiarity, sufficient for single-city scale</td>
+</tr>
+<tr>
+<td>Statistical Testing</td>
+<td>scipy.stats</td>
+<td>statsmodels, R</td>
+<td>Comprehensive non-parametric test support</td>
+</tr>
+<tr>
+<td>Visualization</td>
+<td>plotly, matplotlib/seaborn</td>
+<td>Altair, Tableau</td>
+<td>Interactive + static output flexibility</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Streamlit</td>
+<td>Dash, Gradio</td>
+<td>Rapid deployment, Python-native</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>CSV + star schema files</td>
+<td>DuckDB, SQLite</td>
+<td>Sufficient for assessment scope</td>
+</tr>
+<tr>
+<td>Version Control</td>
+<td>Git + GitHub</td>
+<td>—</td>
+<td>Required by assignment</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.4.3" id="statistical-methodology"><span
+class="header-section-number">1.4.3</span> 4.3 Statistical
+Methodology</h3>
+<p>All hypothesis tests followed this protocol:</p>
+<ol type="1">
+<li><strong>State null and alternative hypotheses
+explicitly</strong></li>
+<li><strong>Check normality</strong> using Shapiro-Wilk test on
+samples</li>
+<li><strong>Select appropriate test</strong> — Mann-Whitney U for
+non-normal distributions (confirmed for all price variables),
+Kruskal-Wallis for multi-group comparisons</li>
+<li><strong>Report effect sizes</strong> alongside p-values —
+rank-biserial correlation and Cohen’s d for pairwise tests, eta-squared
+for ANOVA-equivalent tests</li>
+<li><strong>Interpret in business terms</strong> — statistical
+significance distinguished from practical significance throughout</li>
+</ol>
+<h3 data-number="1.4.4" id="data-quality-framework"><span
+class="header-section-number">1.4.4</span> 4.4 Data Quality
+Framework</h3>
+<p>A systematic data quality assessment was performed across five
+dimensions:</p>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completeness</td>
+<td>Null rate per column, flagged fields &gt;50% missing</td>
+</tr>
+<tr>
+<td>Validity</td>
+<td>Domain rule checks (price ≥ 0, valid coordinates)</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td>Duplicate detection on listing ID</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>Standardization of boolean, categorical, and currency fields</td>
+</tr>
+<tr>
+<td>Timeliness</td>
+<td>Scrape date documented; recency assessed per city</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.4.5" id="outlier-handling"><span
+class="header-section-number">1.4.5</span> 4.5 Outlier Handling</h3>
+<p>Price outliers were handled conservatively: - Records retained in
+cleaned dataset with flag columns - 99th percentile filtering applied
+for visualization and hypothesis testing - Extreme values (e.g.,
+฿1,000,000 listings) noted as likely data entry errors or luxury
+property placeholders, documented as a dataset limitation</p>
+<p>## 5. Engineering Approach</p>
+<h3 data-number="1.4.6" id="pipeline-architecture"><span
+class="header-section-number">1.4.6</span> 5.1 Pipeline
+Architecture</h3>
+<p>The pipeline follows a medallion-style layered architecture:</p>
+<p>[Source] [Bronze] [Silver] [Gold]</p>
+<p>Inside Airbnb → Raw CSV files → Cleaned CSVs → Enriched master
+table</p>
+<p>(ingest.py) (data/raw/) (clean.py) (enrich.py)</p>
+<p>→ Star schema tables</p>
+<p>Each layer is produced by a dedicated, independently runnable script
+with logging, error handling, and retry logic.</p>
+<h3 data-number="1.4.7" id="pipeline-components"><span
+class="header-section-number">1.4.7</span> 5.2 Pipeline Components</h3>
+<p><strong>ingest.py — Data Ingestion</strong> - Configurable city-level
+download via BASE_URL parameter - Retry logic (3 attempts) with
+exponential backoff - Automatic .gz extraction - JSON metadata file
+recording ingestion timestamp, source URL, and file status - Supports
+any Inside Airbnb city with single config change</p>
+<p><strong>profile.py — Data Profiling</strong> - Automated profiling of
+all ingested files - Reports: row counts, column cardinality, null
+rates, data type distributions, min/max/mean for numerical fields,
+sample values for categorical fields - Output: structured JSON report
+for documentation and audit trail</p>
+<p><strong>clean.py — Data Cleaning</strong> - Price standardization:
+currency symbol removal, thousands separator handling, cast to float64 -
+Date parsing across all temporal fields - Boolean normalization (t/f →
+True/False) - Percentage field conversion (host_response_rate,
+host_acceptance_rate) - Derived fields: host_tenure_years,
+price_per_bedroom - Validation flags: flag_negative_price,
+flag_zero_price, flag_invalid_coords - Duplicate detection on listing
+ID</p>
+<p><strong>enrich.py — Data Enrichment</strong> - Neighbourhood-level
+aggregates joined to listings: median price, listing count, average
+rating - Occupancy rate computation from availability_365 - Revenue
+estimation proxy (documented assumption) - Host segmentation: Single (1
+listing), Small Multi (2–5), Commercial (6+) - Review frequency
+calculation (reviews per month of host tenure) - Star schema
+construction: fact_listings, dim_host, dim_location, dim_property,
+dim_review_scores</p>
+<h3 data-number="1.4.8" id="star-schema-design"><span
+class="header-section-number">1.4.8</span> 5.3 Star Schema Design</h3>
+<pre><code>                ┌─────────────────┐
+                │   dim_host      │
+                │  host_id (PK)   │
+                │  host_name      │
+                │  host_since     │
+                │  is_superhost   │
+                │  host_type      │
+                └────────┬────────┘
+                         │</code></pre>
+<p>┌──────────────┐ ┌────────▼────────┐ ┌─────────────────────┐</p>
+<p>│ dim_location │ │ fact_listings │ │ dim_property │</p>
+<p>│ location_id ├────│ listing_id(PK) ├────│ listing_id (PK) │</p>
+<p>│ neighbourhood│ │ host_id (FK) │ │ room_type │</p>
+<p>│ median_price │ │ location_id(FK)│ │ property_type │</p>
+<p>│ listing_count│ │ price │ │ accommodates │</p>
+<p>│ avg_rating │ │ occupancy_rate │ │ bedrooms/beds │</p>
+<p>└──────────────┘ │ est_revenue │ └─────────────────────┘</p>
+<pre><code>                │  booked_days    │
+
+                │  review_freq    │    ┌─────────────────────┐
+
+                └────────┬────────┘    │  dim_review_scores  │
+
+                         │             │  listing_id (PK)    │
+
+                         └─────────────│  rating             │
+
+                                       │  cleanliness        │
+
+                                       │  location           │
+
+                                       │  communication      │
+
+                                       └─────────────────────┘</code></pre>
+<h3 data-number="1.4.9" id="engineering-decision-log"><span
+class="header-section-number">1.4.9</span> 5.4 Engineering Decision
+Log</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 14%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Options Considered</th>
+<th>Choice</th>
+<th>Trade-off Accepted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage format</td>
+<td>SQLite, DuckDB, CSV</td>
+<td>CSV + star schema files</td>
+<td>Portability over query performance</td>
+</tr>
+<tr>
+<td>Pipeline orchestration</td>
+<td>Airflow, Prefect, scripts</td>
+<td>Python scripts</td>
+<td>Simplicity over scheduling capability</td>
+</tr>
+<tr>
+<td>Outlier handling</td>
+<td>Remove, cap, flag</td>
+<td>Flag + filter at analysis layer</td>
+<td>Preserve raw data integrity</td>
+</tr>
+<tr>
+<td>Occupancy calculation</td>
+<td>Calendar-based, availability-based</td>
+<td>availability_365 proxy</td>
+<td>Calendar prices unavailable for Bangkok</td>
+</tr>
+<tr>
+<td>Dashboard framework</td>
+<td>Dash, Streamlit, Gradio</td>
+<td>Streamlit</td>
+<td>Fastest path to deployable product</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.4.10" id="incremental-processing-design"><span
+class="header-section-number">1.4.10</span> 5.5 Incremental Processing
+Design</h3>
+<p>For production deployment, incremental processing would be
+implemented as follows:</p>
+<ol type="1">
+<li><strong>Metadata tracking:</strong> Each ingestion records timestamp
+and file hash in <code>ingest_metadata.json</code></li>
+<li><strong>Change detection:</strong> Compare file hash of new scrape
+against stored hash; skip if unchanged</li>
+<li><strong>Merge strategy:</strong> New listings upserted by
+listing_id; deleted listings flagged with <code>is_active=False</code>
+rather than hard-deleted (SCD Type 2)</li>
+<li><strong>Calendar data:</strong> Append-only with date partitioning;
+past dates never reprocessed</li>
+<li><strong>Review data:</strong> Append new reviews by review_id;
+existing reviews immutable</li>
+</ol>
+<h3 data-number="1.4.11" id="production-readiness-considerations"><span
+class="header-section-number">1.4.11</span> 5.6 Production Readiness
+Considerations</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 28%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Current State</th>
+<th>Production Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scalability</td>
+<td>Single-city, local</td>
+<td>Parameterized multi-city, cloud storage</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>File logging</td>
+<td>Structured logging + alerting (PagerDuty)</td>
+</tr>
+<tr>
+<td>Data quality</td>
+<td>Manual review</td>
+<td>Great Expectations automated checks</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>Manual execution</td>
+<td>Airflow DAG triggered post-scrape</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Local filesystem</td>
+<td>AWS S3 + Glue + Athena or GCP BigQuery</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="1.5" id="eda-findings"><span
+class="header-section-number">1.5</span> 6. EDA Findings</h2>
+<h3 data-number="1.5.1" id="price-distribution"><span
+class="header-section-number">1.5.1</span> 6.1 Price Distribution</h3>
+<p>The Bangkok Airbnb market exhibits a strongly right-skewed price
+distribution, with a median nightly price of ฿1,383 THB and a mean of
+฿2,768 THB — a large gap driven by extreme luxury outliers (max:
+฿1,000,000).</p>
+<p><strong>Key statistics:</strong> - Median: ฿1,383 THB (~$38 USD) -
+Mean: ฿2,768 THB (~$76 USD) - 75th percentile: ฿2,415 THB - Listings
+above ฿5,000: ~8% of market</p>
+<p><strong>Business interpretation:</strong> The median price positions
+Bangkok as an affordable short-term rental market by global standards,
+attracting budget and mid-range travelers. The long right tail reflects
+a small luxury segment serving premium tourists and corporate travelers.
+Hosts pricing above ฿5,000 operate in a fundamentally different
+competitive environment requiring distinct marketing and positioning
+strategies.</p>
+<h3 data-number="1.5.2" id="room-type-analysis"><span
+class="header-section-number">1.5.2</span> 6.2 Room Type Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Room Type</th>
+<th>Count</th>
+<th>Share</th>
+<th>Median Price</th>
+<th>Avg Occupancy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entire Home/Apt</td>
+<td>18,845</td>
+<td>65.4%</td>
+<td>฿1,491</td>
+<td>31.1%</td>
+</tr>
+<tr>
+<td>Private Room</td>
+<td>9,224</td>
+<td>32.0%</td>
+<td>฿1,080</td>
+<td>32.7%</td>
+</tr>
+<tr>
+<td>Hotel Room</td>
+<td>387</td>
+<td>1.3%</td>
+<td>฿1,709</td>
+<td>37.5%</td>
+</tr>
+<tr>
+<td>Shared Room</td>
+<td>350</td>
+<td>1.2%</td>
+<td>฿360</td>
+<td>11.6%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Business interpretation:</strong> Entire homes dominate
+supply and command a 38% price premium, yet private rooms achieve
+slightly higher occupancy — suggesting price-sensitive demand absorbs
+private room inventory more efficiently. Hotel rooms achieve the highest
+occupancy despite premium pricing, reflecting brand trust and booking
+platform visibility advantages.</p>
+<h3 data-number="1.5.3" id="neighbourhood-analysis"><span
+class="header-section-number">1.5.3</span> 6.3 Neighbourhood
+Analysis</h3>
+<p><strong>Top 5 neighbourhoods by listing count:</strong> 1. Vadhana —
+4,305 listings, median ฿1,828 2. Khlong Toei — 3,620 listings, median
+฿1,622 3. Huai Khwang — 3,460 listings, median ฿1,400 4. Ratchathewi —
+1,563 listings, median ฿1,588 5. Sathon — 1,326 listings, median
+฿1,165</p>
+<p><strong>Business interpretation:</strong> Vadhana and Khlong Toei
+dominate supply, reflecting Bangkok’s concentration of modern
+condominiums in the Sukhumvit corridor — a zone favored by both tourists
+and expatriates. Bang Rak commands the highest median price (฿1,890)
+despite lower supply, suggesting premium demand for its riverside and
+business district location. Investors seeking yield should consider Bang
+Rak for pricing power and Vadhana for liquidity.</p>
+<h3 data-number="1.5.4" id="host-supply-side-analysis"><span
+class="header-section-number">1.5.4</span> 6.4 Host &amp; Supply-Side
+Analysis</h3>
+<p>The Bangkok market exhibits significant supply concentration:</p>
+<ul>
+<li><strong>8,874</strong> unique hosts manage <strong>28,806</strong>
+listings</li>
+<li><strong>62.7%</strong> of hosts operate a single listing (casual
+hosts)</li>
+<li><strong>10.6%</strong> of hosts (944) operate 6+ listings
+(commercial operators)</li>
+<li>Commercial operators control <strong>57%</strong> of all
+listings</li>
+<li>Top single host manages <strong>243 listings</strong></li>
+</ul>
+<p><strong>Business interpretation:</strong> Bangkok’s Airbnb market is
+not a peer-to-peer sharing economy — it is a professionally managed
+short-term rental market dominated by commercial operators. This has
+significant implications: pricing is more sophisticated, availability is
+more actively managed, and regulatory risk is higher. Platform operators
+should monitor this concentration as regulators in other markets
+(Barcelona, Amsterdam) have targeted commercial operators
+specifically.</p>
+<h3 data-number="1.5.5" id="occupancy-revenue-analysis"><span
+class="header-section-number">1.5.5</span> 6.5 Occupancy &amp; Revenue
+Analysis</h3>
+<ul>
+<li>Mean occupancy rate: <strong>31.5%</strong> (availability_365
+proxy)</li>
+<li>Median occupancy rate: <strong>20.6%</strong></li>
+<li>Median estimated annual revenue: <strong>฿61,848</strong> (~$1,700
+USD)</li>
+<li>Mean estimated annual revenue: <strong>฿203,274</strong> (~$5,600
+USD)</li>
+</ul>
+<p><strong>Business interpretation:</strong> The wide gap between mean
+and median revenue confirms a highly skewed distribution — a small
+number of high-performing listings generate disproportionate revenue.
+The median host earns approximately ฿5,154/month from their listing — a
+meaningful supplementary income in the Thai context but insufficient as
+a primary income source for most hosts.</p>
+<h3 data-number="1.5.6" id="seasonal-trends"><span
+class="header-section-number">1.5.6</span> 6.6 Seasonal Trends</h3>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Occupancy Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jan</td>
+<td>27.7%</td>
+</tr>
+<tr>
+<td>Feb</td>
+<td>24.4%</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>23.4%</td>
+</tr>
+<tr>
+<td>Apr</td>
+<td>28.3%</td>
+</tr>
+<tr>
+<td>May</td>
+<td>27.6%</td>
+</tr>
+<tr>
+<td>Jun</td>
+<td>30.5%</td>
+</tr>
+<tr>
+<td>Jul</td>
+<td>41.8%</td>
+</tr>
+<tr>
+<td>Aug</td>
+<td>41.6%</td>
+</tr>
+<tr>
+<td>Sep</td>
+<td>43.2%</td>
+</tr>
+<tr>
+<td>Oct</td>
+<td>33.4%</td>
+</tr>
+<tr>
+<td>Nov</td>
+<td>27.7%</td>
+</tr>
+<tr>
+<td>Dec</td>
+<td>27.6%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Business interpretation:</strong> A pronounced July–September
+peak (41–43% occupancy) aligns with European summer holidays — Bangkok’s
+primary tourist source market. The February trough (24.4%) represents
+the lowest demand period despite being a traditional high season in Thai
+tourism, possibly reflecting post-Chinese New Year softness. Hosts
+should implement dynamic pricing strategies that capture the
+July–September premium while stimulating demand in Q1 trough
+periods.</p>
+<h3 data-number="1.5.7" id="review-score-analysis"><span
+class="header-section-number">1.5.7</span> 6.7 Review Score
+Analysis</h3>
+<ul>
+<li>Mean rating: <strong>4.69 / 5.00</strong></li>
+<li>Listings rated above 4.5: <strong>81.4%</strong></li>
+</ul>
+<p><strong>Business interpretation:</strong> The extreme concentration
+of ratings above 4.5 is a classic rating inflation pattern observed
+across Airbnb markets globally. This compression makes it difficult for
+guests to differentiate quality using scores alone, and for hosts to
+signal genuine quality improvements. Sub-score dimensions (cleanliness,
+location, communication) provide more discriminating signals for
+discerning guests.</p>
+<h3 data-number="1.5.8" id="market-recovery-post-covid"><span
+class="header-section-number">1.5.8</span> 6.8 Market Recovery
+Post-COVID</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Reviews</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019</td>
+<td>59,010</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>18,014</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>5,171</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>40,567</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>97,184</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>148,869</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>122,916*</td>
+</tr>
+</tbody>
+</table>
+<p>*2025 partial year (through September scrape)</p>
+<p><strong>Business interpretation:</strong> Bangkok’s Airbnb market has
+not merely recovered from COVID — it has surpassed pre-pandemic peaks by
+152%. This exceptional growth reflects both pent-up travel demand and
+Thailand’s aggressive tourism promotion strategy. The trajectory
+strongly supports continued investment in Bangkok short-term rental
+assets.</p>
+<h2 data-number="1.6" id="statistical-findings"><span
+class="header-section-number">1.6</span> 7. Statistical Findings</h2>
+<h3 data-number="1.6.1" id="methodology-note"><span
+class="header-section-number">1.6.1</span> 7.1 Methodology Note</h3>
+<p>All price variables were confirmed non-normally distributed via
+Shapiro-Wilk test (p&lt;0.0001 for all groups). Consequently,
+non-parametric tests were applied throughout: Mann-Whitney U for
+pairwise comparisons and Kruskal-Wallis for multi-group comparisons.
+Effect sizes are reported alongside p-values in all cases, as
+statistical significance alone is insufficient for practical inference
+at large sample sizes.</p>
+<h3 data-number="1.6.2" id="hypothesis-testing-results"><span
+class="header-section-number">1.6.2</span> 7.2 Hypothesis Testing
+Results</h3>
+<hr />
+<p><strong>H1: Entire-home listings command significantly higher prices
+than private rooms</strong></p>
+<ul>
+<li><strong>Test:</strong> Mann-Whitney U (one-tailed)</li>
+<li><strong>H₀:</strong> Median price of entire homes ≤ median price of
+private rooms</li>
+<li><strong>H₁:</strong> Median price of entire homes &gt; median price
+of private rooms</li>
+<li><strong>Entire home median:</strong> ฿1,491 THB (n=16,498)</li>
+<li><strong>Private room median:</strong> ฿1,080 THB (n=6,263)</li>
+<li><strong>U statistic:</strong> 65,397,289</li>
+<li><strong>P-value:</strong> &lt;0.0001</li>
+<li><strong>Effect size (rank-biserial r):</strong> -0.2916
+(moderate)</li>
+<li><strong>Decision:</strong> REJECT H₀</li>
+</ul>
+<p><strong>Business interpretation:</strong> Entire-home listings
+command a statistically significant and practically meaningful 38% price
+premium over private rooms. This premium reflects guest preference for
+privacy and exclusive access. Hosts considering property type
+positioning should factor this premium against the higher capital
+requirement of entire-home listings.</p>
+<hr />
+<p><strong>H2: Superhost listings achieve higher review scores than
+non-superhost listings</strong></p>
+<ul>
+<li><strong>Test:</strong> Mann-Whitney U (one-tailed)</li>
+<li><strong>H₀:</strong> Superhost median rating ≤ non-superhost median
+rating</li>
+<li><strong>H₁:</strong> Superhost median rating &gt; non-superhost
+median rating</li>
+<li><strong>Superhost mean rating:</strong> 4.858 (n=6,929)</li>
+<li><strong>Non-superhost mean rating:</strong> 4.575 (n=10,540)</li>
+<li><strong>P-value:</strong> &lt;0.0001</li>
+<li><strong>Effect size (rank-biserial r):</strong> -0.3261</li>
+<li><strong>Cohen’s d:</strong> 0.5364 (medium-large)</li>
+<li><strong>Decision:</strong> REJECT H₀</li>
+</ul>
+<p><strong>Business interpretation:</strong> Superhost status is a
+genuine quality signal, not merely a marketing badge. A Cohen’s d of
+0.54 represents a meaningful real-world difference in guest experience.
+Notably, superhosts do not charge significantly higher prices (฿1,390 vs
+฿1,371 median) — suggesting hosts are undermonetizing their quality
+advantage. Revenue optimization strategies for superhosts should include
+gradual price testing.</p>
+<hr />
+<p><strong>H3: Listings with more than 10 reviews have significantly
+different prices</strong></p>
+<ul>
+<li><strong>Test:</strong> Mann-Whitney U (two-tailed)</li>
+<li><strong>H₀:</strong> No price difference between high-review and
+low-review listings</li>
+<li><strong>&gt;10 reviews median price:</strong> ฿1,345 THB
+(n=8,017)</li>
+<li><strong>≤10 reviews median price:</strong> ฿1,386 THB
+(n=15,022)</li>
+<li><strong>P-value:</strong> 0.000005</li>
+<li><strong>Effect size (rank-biserial r):</strong> 0.0365
+(negligible)</li>
+<li><strong>Decision:</strong> REJECT H₀ — but effect is statistically
+significant, practically negligible</li>
+</ul>
+<p><strong>Business interpretation:</strong> While the test rejects the
+null hypothesis, the effect size of 0.037 is negligible — the ฿41
+difference has no practical significance for pricing decisions. This
+finding illustrates the critical importance of reporting effect sizes
+alongside p-values: with n=23,039, even trivial differences achieve
+statistical significance. Interestingly, listings with more reviews are
+slightly cheaper, suggesting budget listings attract higher booking
+volumes.</p>
+<hr />
+<p><strong>H4: Neighbourhood average prices differ significantly across
+Bangkok</strong></p>
+<ul>
+<li><strong>Test:</strong> Kruskal-Wallis H (non-parametric ANOVA
+equivalent)</li>
+<li><strong>H₀:</strong> Median prices are equal across all
+neighbourhoods</li>
+<li><strong>Groups tested:</strong> 10 highest-supply
+neighbourhoods</li>
+<li><strong>H statistic:</strong> 1,726.68</li>
+<li><strong>P-value:</strong> &lt;0.0001</li>
+<li><strong>Eta-squared (η²):</strong> 0.1055 (moderate)</li>
+<li><strong>Decision:</strong> REJECT H₀</li>
+</ul>
+<p><strong>Neighbourhood median prices (THB):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Neighbourhood</th>
+<th>Median Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bang Rak</td>
+<td>฿1,890</td>
+</tr>
+<tr>
+<td>Vadhana</td>
+<td>฿1,828</td>
+</tr>
+<tr>
+<td>Khlong Toei</td>
+<td>฿1,622</td>
+</tr>
+<tr>
+<td>Ratchathewi</td>
+<td>฿1,588</td>
+</tr>
+<tr>
+<td>Huai Khwang</td>
+<td>฿1,400</td>
+</tr>
+<tr>
+<td>Phra Khanong</td>
+<td>฿1,184</td>
+</tr>
+<tr>
+<td>Sathon</td>
+<td>฿1,165</td>
+</tr>
+<tr>
+<td>Chatu Chak</td>
+<td>฿1,130</td>
+</tr>
+<tr>
+<td>Phra Nakhon</td>
+<td>฿1,103</td>
+</tr>
+<tr>
+<td>Suanluang</td>
+<td>฿1,045</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Business interpretation:</strong> Neighbourhood explains
+10.5% of price variance — a meaningful location premium effect. Bang Rak
+commands an 81% premium over Suanluang, reflecting its riverside
+location and proximity to the CBD. For investors and hosts,
+neighbourhood selection is the single most impactful positioning
+decision after room type.</p>
+<hr />
+<p><strong>H5: Weekend pricing differs significantly from weekday
+pricing</strong></p>
+<ul>
+<li><strong>Test:</strong> Mann-Whitney U (two-tailed)</li>
+<li><strong>H₀:</strong> No difference in weekend vs weekday prices</li>
+<li><strong>Weekend median:</strong> ฿1,383 THB</li>
+<li><strong>Weekday median:</strong> ฿1,380 THB</li>
+<li><strong>P-value:</strong> 0.5259</li>
+<li><strong>Effect size (rank-biserial r):</strong> 0.0023
+(negligible)</li>
+<li><strong>Cohen’s d:</strong> -0.012 (negligible)</li>
+<li><strong>Decision:</strong> FAIL TO REJECT H₀</li>
+</ul>
+<p><strong>Business interpretation:</strong> Bangkok hosts do not
+implement meaningful weekend pricing premiums — a significant missed
+revenue opportunity compared to markets like London or New York where
+weekend premiums of 15–25% are common. This likely reflects Bangkok’s
+tourist-dominant demand base, where visitors stay across the full week
+rather than weekend-only. Dynamic pricing tools could help hosts
+experiment with weekend premiums to capture additional revenue without
+meaningfully impacting occupancy.</p>
+<h3 data-number="1.6.3" id="summary-table"><span
+class="header-section-number">1.6.3</span> 7.3 Summary Table</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 12%" />
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Hypothesis</th>
+<th>Test</th>
+<th>P-value</th>
+<th>Effect Size</th>
+<th>Practical Significance</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1: Entire home &gt; Private room price</td>
+<td>Mann-Whitney U</td>
+<td>&lt;0.0001</td>
+<td>r=-0.29 (moderate)</td>
+<td>Yes — 38% premium</td>
+<td>REJECT H₀</td>
+</tr>
+<tr>
+<td>H2: Superhost &gt; Non-superhost rating</td>
+<td>Mann-Whitney U</td>
+<td>&lt;0.0001</td>
+<td>d=0.54 (medium)</td>
+<td>Yes — meaningful quality gap</td>
+<td>REJECT H₀</td>
+</tr>
+<tr>
+<td>H3: &gt;10 reviews ≠ price</td>
+<td>Mann-Whitney U</td>
+<td>0.000005</td>
+<td>r=0.037 (negligible)</td>
+<td>No — ฿41 difference</td>
+<td>REJECT H₀*</td>
+</tr>
+<tr>
+<td>H4: Neighbourhood price differences</td>
+<td>Kruskal-Wallis</td>
+<td>&lt;0.0001</td>
+<td>η²=0.11 (moderate)</td>
+<td>Yes — 81% range</td>
+<td>REJECT H₀</td>
+</tr>
+<tr>
+<td>H5: Weekend ≠ Weekday price</td>
+<td>Mann-Whitney U</td>
+<td>0.5259</td>
+<td>d=-0.012 (negligible)</td>
+<td>No</td>
+<td>FAIL TO REJECT H₀</td>
+</tr>
+</tbody>
+</table>
+<p>*Statistically significant but practically negligible effect
+size.</p>
+<h2 data-number="1.7" id="data-science-experiments"><span
+class="header-section-number">1.7</span> 8. Data Science
+Experiments</h2>
+<p>This section was deprioritized in favor of exceptional depth in data
+engineering and statistical analysis, consistent with the assignment’s
+design philosophy. The following outlines the approach that would be
+taken with additional time.</p>
+<h3 data-number="1.7.1" id="price-prediction-planned-approach"><span
+class="header-section-number">1.7.1</span> 8.1 Price Prediction —
+Planned Approach</h3>
+<p><strong>Problem framing:</strong> Predict nightly listing price given
+property attributes, host characteristics, and location features. Target
+variable: log-transformed price (to address right skew).</p>
+<p><strong>Feature engineering plan:</strong> - Amenity flags extracted
+from JSON amenities field (WiFi, pool, parking, etc.) - Encoded
+categorical variables: room_type, neighbourhood, property_type -
+Interaction terms: room_type × neighbourhood, accommodates × bedrooms -
+Host features: tenure, superhost status, response rate - Location
+features: neighbourhood median price, listing density</p>
+<p><strong>Model comparison plan:</strong></p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ridge Regression</td>
+<td>Baseline linear model, interpretable coefficients</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>Captures non-linear relationships, feature importance</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>State-of-art gradient boosting, handles mixed types</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Validation strategy:</strong> 5-fold cross-validation,
+metrics: MAE, RMSE, MAPE. SHAP values for feature importance and
+explainability.</p>
+<p><strong>Expected finding:</strong> Location (neighbourhood) and room
+type expected to be dominant features, consistent with correlation
+analysis findings in §6.</p>
+<hr />
+<h2 data-number="1.8" id="aiml-experiments"><span
+class="header-section-number">1.8</span> 9. AI/ML Experiments</h2>
+<h3 data-number="1.8.1" id="llm-usage-in-this-project"><span
+class="header-section-number">1.8.1</span> 9.1 LLM Usage in This
+Project</h3>
+<p>Claude (Anthropic) was used throughout this project as an AI coding
+assistant. Full disclosure is provided in Appendix A.</p>
+<h3 data-number="1.8.2" id="planned-nlp-analysis"><span
+class="header-section-number">1.8.2</span> 9.2 Planned NLP Analysis</h3>
+<p>With additional time, the following NLP analyses would be applied to
+the 583,333 guest reviews:</p>
+<p><strong>Sentiment analysis:</strong> Apply VADER or a fine-tuned
+transformer model to correlate review sentiment with numerical scores.
+Hypothesis: sentiment divergence from numerical score identifies
+inflated ratings.</p>
+<p><strong>Topic modeling:</strong> BERTopic on review corpus to surface
+recurring themes (cleanliness complaints, location praise, host
+responsiveness, noise issues).</p>
+<p><strong>Named entity extraction:</strong> spaCy NER to extract
+mentioned landmarks, amenities, and complaint categories — enabling
+automated listing improvement recommendations.</p>
+<hr />
+<h2 data-number="1.9" id="visualizations"><span
+class="header-section-number">1.9</span> 10. Visualizations</h2>
+<p>All visualizations are available in the interactive dashboard
+(dashboard/app.py) and as static figures in notebooks/figures/.</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01_price_distribution.png</td>
+<td>Nightly price histogram — full range and zoomed</td>
+</tr>
+<tr>
+<td>02_room_type_analysis.png</td>
+<td>Median price and listing count by room type</td>
+</tr>
+<tr>
+<td>03_neighbourhood_analysis.png</td>
+<td>Top 20 neighbourhoods by price and supply</td>
+</tr>
+<tr>
+<td>04_host_analysis.png</td>
+<td>Host type distribution and portfolio size distribution</td>
+</tr>
+<tr>
+<td>05_availability_occupancy.png</td>
+<td>Availability and occupancy rate distributions</td>
+</tr>
+<tr>
+<td>06_seasonal_trends.png</td>
+<td>Monthly occupancy and weekend vs weekday comparison</td>
+</tr>
+<tr>
+<td>07_review_trends.png</td>
+<td>Review volume by year and monthly seasonality</td>
+</tr>
+<tr>
+<td>08_ratings_superhost.png</td>
+<td>Rating distribution and superhost comparison</td>
+</tr>
+<tr>
+<td>09_correlation_matrix.png</td>
+<td>Correlation heatmap of numerical features</td>
+</tr>
+<tr>
+<td>H1_price_roomtype.png</td>
+<td>Hypothesis H1 boxplot</td>
+</tr>
+<tr>
+<td>H2_superhost_ratings.png</td>
+<td>Hypothesis H2 boxplot</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 data-number="1.10" id="business-recommendations"><span
+class="header-section-number">1.10</span> 11. Business
+Recommendations</h2>
+<p>Based on the analysis, the following actionable recommendations are
+made for key market participants:</p>
+<h3 data-number="1.10.1" id="for-hosts"><span
+class="header-section-number">1.10.1</span> For Hosts</h3>
+<p><strong>1. Pursue Superhost status aggressively</strong> Superhost
+listings achieve ratings 0.28 points higher (Cohen’s d=0.54) with no
+meaningful price premium currently. This represents an undermonetized
+quality signal. Superhosts should gradually test 5–10% price increases,
+as the quality gap justifies premium pricing.</p>
+<p><strong>2. Implement dynamic pricing for July–September peak</strong>
+Occupancy jumps from ~25% in Q1 to 43% in September. Hosts not using
+dynamic pricing tools (Wheelhouse, PriceLabs) are leaving significant
+revenue on the table during peak season.</p>
+<p><strong>3. Test weekend pricing premiums</strong> H5 confirmed no
+current weekend premium exists in Bangkok. Early adopters implementing
+10–15% weekend surcharges face minimal competitive risk and meaningful
+revenue upside.</p>
+<p><strong>4. Prioritize Bang Rak and Vadhana for investment</strong>
+Bang Rak commands the highest median price (฿1,890) with strong demand.
+Vadhana offers the deepest market (4,305 listings) with high liquidity
+for entry and exit.</p>
+<h3 data-number="1.10.2" id="for-platform-operators"><span
+class="header-section-number">1.10.2</span> For Platform Operators</h3>
+<p><strong>5. Monitor commercial host concentration</strong> 57% of
+listings controlled by commercial operators represents a regulatory
+risk. Bangkok’s market structure mirrors pre-regulation Amsterdam and
+Barcelona. Proactive engagement with Thai regulators is advisable.</p>
+<p><strong>6. Address rating inflation</strong> 81.4% of listings rated
+above 4.5 compresses the signal value of ratings. Sub-score dimensions
+(cleanliness, location, communication) should be promoted as primary
+quality indicators.</p>
+<h3 data-number="1.10.3" id="for-investors"><span
+class="header-section-number">1.10.3</span> For Investors</h3>
+<p><strong>7. Bangkok market fundamentals are strong</strong> 2024
+review volume exceeded pre-COVID peaks by 152%. With Thailand’s
+continued tourism promotion and improving infrastructure, the Bangkok
+short-term rental market presents a favorable investment
+environment.</p>
+<p><strong>8. Focus on mid-market entire homes</strong> The ฿1,000–2,500
+price range captures the highest demand concentration. Luxury listings
+(&gt;฿5,000) face thinner demand and higher vacancy risk.</p>
+<h2 data-number="1.11" id="cross-city-comparisons"><span
+class="header-section-number">1.11</span> 12. Cross-City
+Comparisons</h2>
+<p>Single-city analysis was conducted for this assessment. The following
+outlines how cross-city comparison would be approached with additional
+time.</p>
+<h3 data-number="1.11.1" id="planned-comparison-markets"><span
+class="header-section-number">1.11.1</span> 12.1 Planned Comparison
+Markets</h3>
+<table>
+<thead>
+<tr>
+<th>City</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singapore</td>
+<td>Regional premium market benchmark</td>
+</tr>
+<tr>
+<td>Kuala Lumpur</td>
+<td>Similar SEA tourist profile</td>
+</tr>
+<tr>
+<td>Ho Chi Minh City</td>
+<td>Emerging competitor market</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.11.2" id="harmonization-strategy"><span
+class="header-section-number">1.11.2</span> 12.2 Harmonization
+Strategy</h3>
+<p>Cross-city analysis would require: 1. Standardized currency
+conversion (all prices to USD at scrape-date rate) 2. Consistent
+neighbourhood taxonomy (admin level 2 for all cities) 3. Unified room
+type categories (Inside Airbnb uses consistent taxonomy) 4. Scrape date
+alignment (within 90-day window for comparability) 5. Population
+normalization for listing density comparisons</p>
+<h3 data-number="1.11.3" id="expected-insights"><span
+class="header-section-number">1.11.3</span> 12.3 Expected Insights</h3>
+<ul>
+<li>Bangkok expected to show lower price points than Singapore but
+higher than Ho Chi Minh City</li>
+<li>Commercial host concentration likely highest in Bangkok vs regional
+peers</li>
+<li>Seasonal patterns expected to diverge significantly across
+cities</li>
+</ul>
+<hr />
+<h2 data-number="1.12" id="limitations-caveats"><span
+class="header-section-number">1.12</span> 13. Limitations &amp;
+Caveats</h2>
+<h3 data-number="1.12.1" id="data-limitations"><span
+class="header-section-number">1.12.1</span> 13.1 Data Limitations</h3>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 27%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Limitation</th>
+<th>Impact</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calendar prices entirely null</td>
+<td>Revenue estimates are proxies only</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Occupancy from availability_365</td>
+<td>Conflates host blocking with bookings</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Single scrape date</td>
+<td>No longitudinal price tracking</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Review scores 35% missing</td>
+<td>Ratings analysis on subset</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>No transaction data</td>
+<td>Cannot verify actual bookings</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scraping artifacts</td>
+<td>Some listings may be inactive</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.12.2" id="methodological-limitations"><span
+class="header-section-number">1.12.2</span> 13.2 Methodological
+Limitations</h3>
+<p><strong>Occupancy proxy:</strong> The <code>availability_365</code>
+field records days marked unavailable by hosts, which may reflect
+bookings OR deliberate blocking (e.g., host traveling, property
+maintenance). Inside Airbnb acknowledges this limitation in their
+methodology documentation. True occupancy is likely lower than
+estimated.</p>
+<p><strong>Revenue estimation:</strong> Using listed price × estimated
+booked days overstates revenue for listings that offer discounts for
+longer stays and understates for listings with dynamic pricing
+premiums.</p>
+<p><strong>Causality:</strong> All findings are correlational. Superhost
+status correlating with higher ratings does not establish that achieving
+superhost status causes rating improvement — selection effects are
+present.</p>
+<p><strong>Temporal validity:</strong> The September 2025 scrape
+reflects a single point in time. Market conditions, pricing strategies,
+and competitive dynamics evolve continuously.</p>
+<h3 data-number="1.12.3" id="statistical-limitations"><span
+class="header-section-number">1.12.3</span> 13.3 Statistical
+Limitations</h3>
+<ul>
+<li>Large sample sizes (n&gt;8,000 for most tests) make even trivial
+differences statistically significant — effect sizes must be interpreted
+carefully</li>
+<li>Multiple hypothesis testing without Bonferroni correction applied —
+familywise error rate is elevated across 5 tests</li>
+<li>Non-independence of listings from same host violates independence
+assumptions of standard tests</li>
+</ul>
+<hr />
+<h2 data-number="1.13" id="future-improvements"><span
+class="header-section-number">1.13</span> 14. Future Improvements</h2>
+<h3 data-number="1.13.1" id="with-more-time"><span
+class="header-section-number">1.13.1</span> 14.1 With More Time</h3>
+<table>
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Improvement</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ML price prediction with SHAP explainability</td>
+<td>Quantify feature importance</td>
+</tr>
+<tr>
+<td>NLP sentiment analysis on 583K reviews</td>
+<td>Surface quality signals beyond scores</td>
+</tr>
+<tr>
+<td>Multi-city comparative analysis</td>
+<td>Regional market benchmarking</td>
+</tr>
+<tr>
+<td>Geospatial clustering with GeoPandas/Folium</td>
+<td>Neighbourhood boundary visualization</td>
+</tr>
+<tr>
+<td>dbt models for documented lineage</td>
+<td>Production-grade transformation layer</td>
+</tr>
+<tr>
+<td>Great Expectations data quality checks</td>
+<td>Automated quality gates</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.13.2" id="with-better-data"><span
+class="header-section-number">1.13.2</span> 14.2 With Better Data</h3>
+<table>
+<thead>
+<tr>
+<th>Data Gap</th>
+<th>What It Would Enable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actual transaction prices</td>
+<td>True revenue modeling</td>
+</tr>
+<tr>
+<td>Booking timestamps</td>
+<td>Real occupancy calculation</td>
+</tr>
+<tr>
+<td>Guest demographics</td>
+<td>Demand segmentation</td>
+</tr>
+<tr>
+<td>Host cost data</td>
+<td>True profitability analysis</td>
+</tr>
+<tr>
+<td>Historical scrapes (12+ months)</td>
+<td>Longitudinal price trend analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.13.3" id="with-production-infrastructure"><span
+class="header-section-number">1.13.3</span> 14.3 With Production
+Infrastructure</h3>
+<ul>
+<li><strong>Orchestration:</strong> Apache Airflow DAG triggered weekly
+post-scrape</li>
+<li><strong>Storage:</strong> AWS S3 data lake with Glue catalog</li>
+<li><strong>Processing:</strong> Spark for multi-city parallel
+processing</li>
+<li><strong>Serving:</strong> BigQuery + Looker Studio for stakeholder
+dashboards</li>
+<li><strong>Monitoring:</strong> Great Expectations + Slack alerting for
+data quality failures</li>
+<li><strong>CI/CD:</strong> GitHub Actions for automated pipeline
+testing on push</li>
+</ul>
+<hr />
+<h2 data-number="1.14" id="reflection"><span
+class="header-section-number">1.14</span> 15. Reflection</h2>
+<h3 data-number="1.14.1" id="prioritization-decisions"><span
+class="header-section-number">1.14.1</span> 15.1 Prioritization
+Decisions</h3>
+<p>The one-week timeline required deliberate prioritization. The core
+data engineering pipeline (ingestion, profiling, cleaning, enrichment,
+star schema) was completed first as the foundation for all downstream
+work. EDA and hypothesis testing followed as the primary analytical
+deliverables. The Streamlit dashboard was built as the open innovation
+component, demonstrating end-to-end product thinking.</p>
+<p>ML modeling (Section 06) and NLP experiments (Section 07) were
+consciously deprioritized. Given the rubric weights — Problem Solving
+(30), Data Engineering Quality (25), Code Quality (20) — depth in
+engineering and statistical analysis offered higher expected value than
+superficial ML experiments.</p>
+<h3 data-number="1.14.2" id="key-trade-offs-accepted"><span
+class="header-section-number">1.14.2</span> 15.2 Key Trade-offs
+Accepted</h3>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Trade-off</th>
+<th>Decision</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depth vs breadth</td>
+<td>Single city, deep analysis</td>
+<td>Assignment explicitly rewards depth</td>
+</tr>
+<tr>
+<td>ML vs statistics</td>
+<td>Formal hypothesis testing</td>
+<td>More rigorous, higher rubric weight</td>
+</tr>
+<tr>
+<td>Cloud vs local</td>
+<td>Local pipeline, cloud design</td>
+<td>Reproducibility without cloud costs</td>
+</tr>
+<tr>
+<td>Speed vs quality</td>
+<td>Slower, documented approach</td>
+<td>Report quality is primary artifact</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.14.3" id="key-lessons-learned"><span
+class="header-section-number">1.14.3</span> 15.3 Key Lessons
+Learned</h3>
+<ol type="1">
+<li><p><strong>Data quality issues surface early or not at all</strong>
+— the null calendar prices were discovered during profiling, allowing
+time to design a principled workaround rather than discovering it during
+analysis.</p></li>
+<li><p><strong>Effect sizes matter as much as p-values</strong> — H3
+demonstrated that statistical significance without practical
+significance is misleading, reinforcing the importance of rigorous
+statistical reporting.</p></li>
+<li><p><strong>Commercial concentration is a Bangkok-specific
+story</strong> — the 57% commercial operator finding was not anticipated
+and emerged from the data, representing genuine discovery rather than
+hypothesis confirmation.</p></li>
+<li><p><strong>Documentation is part of the engineering</strong> —
+maintaining decision logs, assumption documentation, and metadata
+throughout the pipeline made the final report significantly easier to
+write and more credible.</p></li>
+</ol>
+<hr />
+<h2 data-number="1.15" id="appendix-a-ai-usage-disclosure"><span
+class="header-section-number">1.15</span> Appendix A — AI Usage
+Disclosure</h2>
+<h3 data-number="1.15.1" id="a.1-ai-tools-used"><span
+class="header-section-number">1.15.1</span> A.1 AI Tools Used</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 37%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude (Anthropic)</td>
+<td>Claude Sonnet 4.6</td>
+<td>Primary coding assistant, report structuring</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>—</td>
+<td>Inline code completion</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.15.2" id="a.2-ai-assisted-sections"><span
+class="header-section-number">1.15.2</span> A.2 AI-Assisted
+Sections</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 66%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr>
+<th>Section</th>
+<th>AI Assistance Level</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pipeline code (ingest, clean, enrich)</td>
+<td>High</td>
+<td>Generated with prompting, reviewed and modified</td>
+</tr>
+<tr>
+<td>EDA notebook cells</td>
+<td>High</td>
+<td>Generated with prompting, all outputs verified</td>
+</tr>
+<tr>
+<td>Hypothesis testing code</td>
+<td>Medium</td>
+<td>Generated, statistical choices independently verified</td>
+</tr>
+<tr>
+<td>Dashboard CSS/layout</td>
+<td>Medium</td>
+<td>Generated, significantly modified for aesthetics</td>
+</tr>
+<tr>
+<td>Report writing</td>
+<td>Medium</td>
+<td>Structure suggested, content written and verified</td>
+</tr>
+<tr>
+<td>Business interpretations</td>
+<td>Low</td>
+<td>All business interpretations independently authored</td>
+</tr>
+<tr>
+<td>Statistical conclusions</td>
+<td>Low</td>
+<td>All conclusions independently verified against outputs</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="1.15.3" id="a.3-key-prompts-used"><span
+class="header-section-number">1.15.3</span> A.3 Key Prompts Used</h3>
+<p>All interactions conducted with Claude Sonnet 4.6 via claude.ai.
+Representative prompts:</p>
+<ul>
+<li><em>“Build a repeatable ingestion pipeline with retry logic and
+metadata tracking for Inside Airbnb Bangkok data”</em></li>
+<li><em>“Clean the listings CSV — standardize price, parse dates, flag
+invalid records, derive host tenure”</em></li>
+<li><em>“Run Mann-Whitney U test for H1 with effect size and business
+interpretation”</em></li>
+<li><em>“Build a dark-themed Streamlit dashboard with plotly charts for
+Bangkok Airbnb data”</em></li>
+</ul>
+<h3 data-number="1.15.4" id="a.4-output-validation"><span
+class="header-section-number">1.15.4</span> A.4 Output Validation</h3>
+<p>All AI-generated code was: 1. Executed and outputs verified against
+expected ranges 2. Reviewed for logical correctness before proceeding 3.
+Modified where outputs were incorrect (calendar price null issue
+required independent diagnosis and resolution) 4. Statistical results
+cross-checked against manual calculations</p>
+<h3 data-number="1.15.5" id="a.5-critical-assessment"><span
+class="header-section-number">1.15.5</span> A.5 Critical Assessment</h3>
+<p>AI assistance was most valuable for boilerplate pipeline code and
+visualization scaffolding. It was least reliable for domain-specific
+business interpretations and statistical methodology choices — both
+areas where independent judgment was applied. The calendar price null
+issue was diagnosed independently after AI-generated code produced NaN
+outputs, demonstrating the necessity of critical evaluation.</p>
+<p>AI tools were used as a productivity multiplier, not a replacement
+for analytical judgment. All findings, interpretations, and
+recommendations represent the author’s independent analysis.</p>
+</body>
+</html>
