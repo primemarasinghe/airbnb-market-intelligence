@@ -4,7 +4,7 @@ import os
 import logging
 from datetime import datetime
 
-RAW_DIR = "data/raw/bangkok"
+RAW_DIR = "data/raw/Bangkok/data"
 OUT_DIR = "data/processed"
 os.makedirs(OUT_DIR, exist_ok=True)
 

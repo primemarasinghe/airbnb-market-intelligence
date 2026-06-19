@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 
-RAW_DIR = "data/raw/bangkok"
+RAW_DIR = "data/raw/Bangkok/data"
 OUTPUT = "data/processed/profiling_report.json"
 os.makedirs("data/processed", exist_ok=True)
 
