@@ -1,20 +1,18 @@
 # 🏙️ Bangkok Airbnb Market Intelligence
 
-> End-to-end data engineering pipeline and market analysis on the Inside Airbnb 
-> Bangkok dataset — built as part of the Expernetic Data Engineer Intern Assessment.
+> End-to-end data engineering pipeline and market analysis on the Inside Airbnb Bangkok dataset — built as part of the Expernetic Data Engineer Intern Assessment.
 
 ---
 
 ## 📊 Project Overview
 
-This project transforms raw Inside Airbnb data into actionable market intelligence 
-through a production-quality data pipeline, rigorous statistical analysis, and an 
-interactive business dashboard.
+This project transforms raw Inside Airbnb data into actionable market intelligence through a production-quality data pipeline, rigorous statistical analysis, machine learning models, NLP analysis, and an interactive business dashboard.
 
 **Dataset:** Inside Airbnb — Bangkok, Thailand (September 2025 Scrape)  
 **Listings analyzed:** 28,806  
 **Neighbourhoods:** 50  
 **Reviews:** 583,333  
+**Calendar records:** 10,514,202  
 
 ---
 
@@ -23,7 +21,25 @@ Raw Data → Ingestion → Profiling → Cleaning → Enrichment → Star Schema
 
 ↓
 
+DuckDB SQL Analytics
+
+↓
+
 EDA + Hypothesis Testing
+
+OLS Regression + VIF
+
+K-Means Clustering
+
+ML Price Prediction
+
+NLP Sentiment Analysis
+
+RAG Q&A System
+
+Demand Forecasting
+
+Recommendation System
 
 ↓
 
@@ -36,27 +52,55 @@ airbnb-market-intelligence/
 
 ├── pipeline/
 
-│   ├── ingest.py          # Data download with retry logic + metadata tracking
+│   ├── ingest.py                  # Data download with retry + metadata
 
-│   ├── profile.py         # Automated data profiling → JSON report
+│   ├── profile.py                 # Automated data profiling
 
-│   ├── clean.py           # Cleaning, standardization, validation flags
+│   ├── clean.py                   # Cleaning + validation flags
 
-│   └── enrich.py          # Enrichment, occupancy, star schema construction
+│   ├── enrich.py                  # Enrichment + star schema
+
+│   ├── sql_analytics.py           # DuckDB SQL analytical queries
+
+│   ├── architecture_diagram.py    # Data pipeline diagram
+
+│   └── cloud_architecture.py      # AWS cloud architecture diagram
 
 ├── notebooks/
 
-│   ├── 01_eda.ipynb       # Exploratory Data Analysis (9 visualizations)
+│   ├── 01_eda.ipynb               # EDA (9 visualizations)
 
-│   └── 02_hypothesis_testing.ipynb  # 5 formal hypothesis tests
+│   ├── 02_hypothesis_testing.ipynb # 5 tests + CI + OLS + VIF
+
+│   ├── 03_ml_price_prediction.ipynb # 3 models + bias analysis
+
+│   ├── 04_nlp_reviews.ipynb       # Sentiment + word frequency
+
+│   ├── 05_clustering.ipynb        # K-Means (5 segments)
+
+│   ├── 06_rag_system.ipynb        # RAG Q&A + Generative AI
+
+│   ├── 07_demand_forecasting.ipynb # Trend + seasonality model
+
+│   └── 08_recommendation_system.ipynb # Content-based filtering
 
 ├── dashboard/
 
-│   └── app.py             # Streamlit market intelligence dashboard
+│   └── app.py                     # Streamlit dashboard
+
+├── tests/
+
+│   └── test_pipeline.py           # 21 unit tests (all passing)
 
 ├── report/
 
-│   └── Bangkok_Airbnb_Intelligence_Report.pdf
+│   ├── architecture_diagram.png
+
+│   └── cloud_architecture.png
+
+├── Dockerfile
+
+├── docker-compose.yml
 
 ├── requirements.txt
 
@@ -73,27 +117,28 @@ cd airbnb-market-intelligence
 pip install -r requirements.txt
 ```
 
-### 2. Download Data
+### 2. Download & Process Data
 ```bash
 python pipeline/ingest.py
-```
-Downloads Bangkok dataset from Inside Airbnb automatically.
-
-### 3. Process Data
-```bash
-python pipeline/profile.py   # Profile raw data
-python pipeline/clean.py     # Clean and standardize
-python pipeline/enrich.py    # Enrich and build star schema
+python pipeline/profile.py
+python pipeline/clean.py
+python pipeline/enrich.py
+python pipeline/sql_analytics.py
 ```
 
-### 4. Run Dashboard
+### 3. Run Dashboard
 ```bash
 streamlit run dashboard/app.py
 ```
 
-### 5. Open Notebooks
+### 4. Run Tests
 ```bash
-jupyter notebook notebooks/
+pytest tests/test_pipeline.py -v
+```
+
+### 5. Docker
+```bash
+docker-compose up
 ```
 
 ---
@@ -105,9 +150,41 @@ jupyter notebook notebooks/
 | Median nightly price | ฿1,383 THB (~$38 USD) |
 | Market concentration | 57% of listings by commercial operators |
 | Peak season | July–September (43% occupancy) |
-| Superhost rating premium | +0.28 points (Cohen's d=0.54) |
+| Superhost revenue premium | ฿114,431 vs ฿25,968 (340% gap) |
 | Post-COVID growth | 2024 reviews 152% above 2019 peak |
 | Weekend price premium | None (p=0.526) — missed opportunity |
+| Best ML model | Gradient Boosting (R²=0.662, MAPE=29.1%) |
+| Top price driver | Bedrooms (43.2% feature importance) |
+| Sentiment | 72.9% positive reviews (VADER) |
+
+---
+
+## 🧪 Analysis Completed
+
+| Section | Status |
+|---------|--------|
+| §02 Dataset Familiarization | ✅ Complete |
+| §03.1 Ingestion & Profiling | ✅ Complete |
+| §03.2 Cleaning & Standardization | ✅ Complete |
+| §03.3 Enrichment & Joining | ✅ Complete |
+| §03.4 Star Schema + DuckDB SQL | ✅ Complete |
+| §03.5 Pipeline Automation | ✅ Complete |
+| §04 EDA (5 subsections) | ✅ Complete |
+| §05.1 Hypothesis Testing (H1-H5) | ✅ Complete |
+| §05.2 Confidence Intervals | ✅ Complete |
+| §05.3 OLS Regression + VIF | ✅ Complete |
+| §06.1 ML Price Prediction | ✅ Complete |
+| §06.2 Demand Forecasting | ✅ Complete |
+| §06.3 K-Means Clustering | ✅ Complete |
+| §06.4 Model Bias Analysis | ✅ Complete |
+| §07.1 NLP Sentiment Analysis | ✅ Complete |
+| §07.2 RAG Q&A System | ✅ Complete |
+| §07.3 Recommendation System | ✅ Complete |
+| §07.4 Generative AI Framework | ✅ Complete |
+| §08 Interactive Dashboard | ✅ Complete |
+| Unit Tests (21 tests) | ✅ All Passing |
+| Docker Containerization | ✅ Complete |
+| Architecture Diagrams | ✅ Complete |
 
 ---
 
@@ -116,66 +193,37 @@ jupyter notebook notebooks/
 - KPI metrics with live filter updates
 - Price distribution by room type (violin plots)
 - Neighbourhood supply and pricing analysis
-- Host market structure (commercial vs casual)
-- Interactive listing map (price heatmap)
+- Host market structure analysis
+- Interactive listing price heatmap
 - Market growth trend with COVID annotation
 - Sidebar filters: room type, price range, neighbourhood, superhost
-
----
-
-## 🧪 Hypothesis Tests
-
-| Hypothesis | Result | Effect Size |
-|-----------|--------|-------------|
-| H1: Entire home > Private room price | REJECT H₀ | r=0.29 (moderate) |
-| H2: Superhost > Non-superhost rating | REJECT H₀ | d=0.54 (medium) |
-| H3: Reviews count affects price | REJECT H₀ | r=0.037 (negligible) |
-| H4: Neighbourhood price differences | REJECT H₀ | η²=0.11 (moderate) |
-| H5: Weekend vs weekday pricing | FAIL TO REJECT H₀ | d=0.012 (negligible) |
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Language:** Python 3.11
-- **Data Processing:** pandas, numpy
+- **Data Processing:** pandas, numpy, duckdb
 - **Statistics:** scipy, statsmodels
+- **ML:** scikit-learn (Ridge, Random Forest, Gradient Boosting)
+- **NLP:** VADER sentiment, TF-IDF RAG
 - **Visualization:** plotly, matplotlib, seaborn
 - **Dashboard:** Streamlit
+- **Testing:** pytest (21 tests)
+- **Containers:** Docker, docker-compose
 - **Version Control:** Git + GitHub
 
 ---
 
 ## 📄 Report
 
-Full analysis report available at `report/Bangkok_Airbnb_Intelligence_Report.pdf`
-
-Sections covered:
-1. Executive Summary
-2. Objectives & Scope
-3. Dataset Overview
-4. Methodology
-5. Engineering Approach
-6. EDA Findings
-7. Statistical Findings
-8. Data Science Experiments (planned)
-9. AI/ML Experiments
-10. Visualizations
-11. Business Recommendations
-12. Cross-City Comparisons (planned)
-13. Limitations & Caveats
-14. Future Improvements
-15. Reflection
-- Appendix A: AI Usage Disclosure
+Full analysis report: `report/Bangkok_Airbnb_Intelligence_Report.pdf`
 
 ---
 
 ## 🤖 AI Usage
 
-AI tools (Claude Sonnet 4.6, GitHub Copilot) were used as productivity 
-multipliers for code generation and report structuring. All outputs were 
-independently verified, tested, and modified where necessary. Full 
-disclosure in Appendix A of the report.
+AI tools (Claude Sonnet 4.6, GitHub Copilot) used as productivity multipliers. Full disclosure in Appendix A of the report.
 
 ---
 
@@ -183,4 +231,4 @@ disclosure in Appendix A of the report.
 
 **Primesh Marasinghe**  
 BSc (Hons) Data Science — SLIIT  
-[GitHub](https://github.com/primemarasinghe)
+[GitHub](https://github.com/primemarasinghe/airbnb-market-intelligence)
