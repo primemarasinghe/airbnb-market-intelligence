@@ -1,0 +1,210 @@
+
+================================================================================
+ADVANCED ENGINEERING DOCUMENTATION
+Bangkok Airbnb Market Intelligence Pipeline
+================================================================================
+
+1. SCALABLE ARCHITECTURE FOR 50+ CITIES
+========================================
+Current single-city architecture would require these changes:
+
+PARALLELIZATION:
+- Replace sequential city processing with parallel workers
+- AWS ECS Fargate: spawn one container per city
+- SQS queue: each city URL is a message, workers poll and process
+- Estimated throughput: 50 cities in ~2 hours (vs 50x sequential)
+
+STORAGE PARTITIONING:
+- S3 path structure: s3://bucket/city={city}/year={year}/month={month}/
+- Enables partition pruning for city-specific queries
+- Athena queries filtered by partition = no full table scans
+
+SCHEMA HARMONIZATION:
+- Config-driven city registry (city_config.json):
+  {city: {url, currency, timezone, coordinate_bounds}}
+- Currency normalization to USD at scrape-date exchange rate
+- Unified neighbourhood taxonomy at admin level 2
+
+COST ESTIMATE (50 cities):
+- ECS Fargate: ~$0.40/city/run = $20/week
+- S3 storage: ~$0.023/GB = ~$5/month for 50 cities
+- Athena queries: $5/TB scanned = ~$2/month
+- Total: ~$100/month for weekly 50-city pipeline
+
+2. CALENDAR DATASET PARTITIONING STRATEGY
+==========================================
+Problem: calendar.csv = 10.5M rows for 1 city
+         50 cities = 525M rows, 1 year = 6.3B rows
+
+PARTITIONING APPROACH:
+- Partition by: city → year → month
+  s3://bucket/calendar/city=bangkok/year=2025/month=09/
+- Each partition: ~875K rows, ~50MB compressed parquet
+- Parquet columnar format: 10x compression vs CSV
+- Partition pruning: monthly query scans 1/12 of data
+
+ADDITIONAL OPTIMIZATIONS:
+- Convert to Parquet with snappy compression
+- Sort within partition by listing_id for merge joins
+- Z-order clustering on (listing_id, date) for time-series queries
+- Bloom filters on listing_id for point lookups
+
+QUERY PERFORMANCE COMPARISON:
+- CSV full scan (10.5M rows): ~45 seconds
+- Parquet partitioned (monthly): ~2 seconds
+- 22x speedup for typical analytical queries
+
+3. CHANGE DATA CAPTURE (CDC) STRATEGY
+=======================================
+Problem: Inside Airbnb scrapes replace entire dataset weekly
+         Need to track: new listings, deleted listings, price changes
+
+CDC APPROACH FOR LISTINGS TABLE:
+
+Step 1 — Hash-based change detection:
+  - Compute MD5 hash of key fields per listing_id
+  - Compare new scrape hash vs stored hash
+  - Changed hash = updated record
+
+Step 2 — SCD Type 2 implementation:
+  CREATE TABLE listings_history (
+    listing_id      BIGINT,
+    price           FLOAT,
+    availability_365 INT,
+    minimum_nights  INT,
+    scrape_date     DATE,
+    valid_from      DATE,
+    valid_to        DATE,      -- NULL = current record
+    is_current      BOOLEAN,
+    change_type     VARCHAR    -- NEW/UPDATED/DELETED
+  )
+
+Step 3 — Change classification:
+  - listing_id in new but not old → NEW (INSERT)
+  - listing_id in old but not new → DELETED (soft delete, is_current=False)
+  - listing_id in both, hash changed → UPDATED (close old, insert new)
+  - listing_id in both, hash same → UNCHANGED (skip)
+
+Step 4 — Metadata tracking:
+  - Record scrape_date, processing_timestamp, change_counts
+  - Alert if >10% listings deleted (possible scraping error)
+
+IMPLEMENTATION NOTE:
+Current pipeline stores ingest_metadata.json per run.
+Full CDC would require persistent listing_history table in
+PostgreSQL or DynamoDB for cross-run comparison.
+
+4. DATA QUALITY CHECKS AS CODE
+================================
+Current: 21 pytest unit tests covering schema, types, counts
+
+Production upgrade with Great Expectations:
+
+  import great_expectations as ge
+  
+  listings_ge = ge.from_pandas(listings_df)
+  
+  # Expectations
+  listings_ge.expect_column_to_exist("id")
+  listings_ge.expect_column_values_to_not_be_null("id")
+  listings_ge.expect_column_values_to_be_unique("id")
+  listings_ge.expect_column_values_to_be_between("price", 0, 1000000)
+  listings_ge.expect_column_values_to_be_in_set(
+      "room_type", 
+      ["Entire Home/Apt", "Private Room", "Shared Room", "Hotel Room"]
+  )
+  listings_ge.expect_column_values_to_be_between("latitude", 12, 16)
+  listings_ge.expect_column_values_to_be_between("longitude", 99, 102)
+  
+  # Generate HTML data docs
+  listings_ge.save_expectation_suite("expectations/listings.json")
+
+5. PRODUCTION READINESS
+========================
+MONITORING:
+- CloudWatch metrics: pipeline duration, row counts, error rates
+- Custom metric: % change in listing count vs previous scrape
+- Dashboard: Grafana connected to CloudWatch
+
+ALERTING:
+- SNS topic: pipeline failure → PagerDuty + Slack
+- Alert thresholds:
+  * Pipeline duration > 2x baseline → warning
+  * Listing count drops >10% → critical alert
+  * Data quality checks fail → block downstream processing
+
+SLA TRACKING:
+- Target: data available by 06:00 UTC every Monday
+- Measurement: CloudWatch alarm if S3 Gold layer not updated by 07:00
+- SLA breach → automatic incident creation in PagerDuty
+
+COST OPTIMIZATION:
+- S3 Intelligent Tiering: auto-move old data to cheaper storage
+- Athena workgroups: query cost limits per team
+- Fargate Spot: 70% cost reduction for non-critical pipeline runs
+- Reserved capacity for SageMaker inference endpoints
+
+6. ENGINEERING DECISION LOG
+============================
+Decision 1: Python over Scala/PySpark
+  Options: Python/pandas, PySpark, dbt+SQL
+  Choice: Python/pandas
+  Rationale: Single city fits in memory (28K rows). PySpark overhead
+             not justified. Faster development cycle.
+  Trade-off: Won't scale beyond ~5M rows without refactoring.
+
+Decision 2: CSV files over database for storage
+  Options: SQLite, DuckDB persistent, PostgreSQL, CSV files
+  Choice: CSV + DuckDB for analytics queries
+  Rationale: Portability — any reviewer can open CSV files.
+             DuckDB adds SQL capability without server setup.
+  Trade-off: No ACID transactions, no concurrent access.
+
+Decision 3: Star schema over flat table
+  Options: Single wide table, star schema, data vault
+  Choice: Star schema (Kimball methodology)
+  Rationale: Industry standard for analytical workloads.
+             Supports efficient aggregation queries.
+             Familiar to BI tools and analysts.
+  Trade-off: Joins required for full analysis vs denormalized flat table.
+
+Decision 4: availability_365 as occupancy proxy
+  Options: Calendar-based occupancy, availability_365 proxy
+  Choice: availability_365 proxy
+  Rationale: Calendar price data entirely null for Bangkok.
+             availability_365 is standard Inside Airbnb methodology.
+  Trade-off: Conflates host blocking with actual bookings.
+             Likely overestimates true occupancy.
+
+Decision 5: Streamlit over Dash/PowerBI for dashboard
+  Options: Streamlit, Plotly Dash, Power BI, Tableau
+  Choice: Streamlit
+  Rationale: Python-native, fastest deployment, no license cost,
+             integrates directly with pipeline data.
+  Trade-off: Less enterprise polish than Power BI/Tableau.
+             Single-threaded — performance degrades with many users.
+
+Decision 6: VADER over transformer model for sentiment
+  Options: VADER, TextBlob, BERT, RoBERTa
+  Choice: VADER
+  Rationale: No GPU required, no API key, fast (513K reviews),
+             designed for short informal text.
+  Trade-off: No semantic understanding, English-only,
+             underperforms on multilingual reviews.
+
+Decision 7: TF-IDF RAG over vector database RAG
+  Options: TF-IDF cosine similarity, FAISS+embeddings, Pinecone
+  Choice: TF-IDF
+  Rationale: Fully local, no API costs, reproducible,
+             sufficient for keyword-based retrieval demo.
+  Trade-off: No semantic search — misses meaning-based queries.
+             Production would require sentence-transformers + FAISS.
+
+Decision 8: Gradient Boosting over Neural Network for pricing
+  Options: Ridge, Random Forest, Gradient Boosting, Neural Network
+  Choice: Gradient Boosting (best R²=0.662, MAPE=29.1%)
+  Rationale: Best performance on tabular data, interpretable
+             feature importance, no GPU required.
+  Trade-off: Slower inference than linear models.
+             Less flexible than deep learning for complex patterns.
+================================================================================
