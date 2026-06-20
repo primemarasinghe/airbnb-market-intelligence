@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  pipeline:
+    build: .
+    container_name: airbnb_pipeline
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: >
+      sh -c "python pipeline/ingest.py &&
+             python pipeline/profile.py &&
+             python pipeline/clean.py &&
+             python pipeline/enrich.py &&
+             python pipeline/sql_analytics.py"
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  dashboard:
+    build: .
+    container_name: airbnb_dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - pipeline
+    command: streamlit run dashboard/app.py --server.port=8501 --server.address=0.0.0.0
