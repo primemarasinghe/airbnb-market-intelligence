@@ -129,6 +129,7 @@ python pipeline/sql_analytics.py
 ### 3. Run Dashboard
 ```bash
 streamlit run dashboard/app.py
+streamlit run dashboard/ai_analyst.py
 ```
 
 ### 4. Run Tests
