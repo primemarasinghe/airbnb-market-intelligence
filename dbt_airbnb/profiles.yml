@@ -1,0 +1,6 @@
+dbt_airbnb:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/processed/duckdb/airbnb.db'

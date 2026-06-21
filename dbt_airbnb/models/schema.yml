@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: stg_listings
+    description: "Staged and standardized listing facts from the Bangkok Airbnb dataset"
+    columns:
+      - name: listing_id
+        description: "Primary key — unique listing identifier"
+        tests:
+          - unique
+          - not_null
+      - name: price
+        description: "Nightly price in THB"
+        tests:
+          - not_null
+      - name: price_tier
+        description: "Budget / Mid-Market / Premium / Luxury classification"
+        tests:
+          - accepted_values:
+              values: ['Budget', 'Mid-Market', 'Premium', 'Luxury']
+
+  - name: stg_hosts
+    description: "Staged host dimension with derived experience tiers"
+    columns:
+      - name: host_id
+        description: "Primary key — unique host identifier"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_locations
+    description: "Staged location dimension with neighbourhood price zones"
+    columns:
+      - name: location_id
+        description: "Primary key — surrogate location key"
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_listing_performance
+    description: "Wide mart table joining all dimensions for analytical queries"
+    columns:
+      - name: listing_id
+        tests:
+          - not_null
+
+  - name: mart_neighbourhood_summary
+    description: "Neighbourhood-level market summary for BI dashboards"
+    columns:
+      - name: neighbourhood
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_host_performance
+    description: "Host-level portfolio performance aggregation"
+    columns:
+      - name: host_id
+        tests:
+          - not_null
