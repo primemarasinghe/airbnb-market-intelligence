@@ -130,6 +130,14 @@ python pipeline/sql_analytics.py
 ```bash
 streamlit run dashboard/app.py
 streamlit run dashboard/ai_analyst.py
+
+## 🌐 Live Demo
+
+**AI Market Intelligence Analyst (Cloud Deployed):**  
+🔗 https://airbnb-market-intelligence-primeshmarasinghe.streamlit.app
+
+Ask questions about Bangkok Airbnb market in natural language — no setup required.
+
 ```
 
 ### 4. Run Tests
@@ -142,6 +150,9 @@ pytest tests/test_pipeline.py -v
 docker-compose up
 ```
 
+### 6. Live Demo
+Visit the deployed AI Analyst directly:
+https://airbnb-market-intelligence-primeshmarasinghe.streamlit.app
 ---
 
 ## 🔑 Key Findings
