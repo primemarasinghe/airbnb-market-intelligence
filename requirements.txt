@@ -11,3 +11,9 @@ geopandas
 folium
 duckdb
 jupyter
+streamlit
+python-pptx
+reportlab
+vaderSentiment
+dbt-core
+dbt-duckdb
